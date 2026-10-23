@@ -1,0 +1,161 @@
+{
+  "dataset": {
+    "rows": 7200,
+    "fraud_rate": 0.0336,
+    "target": "is_fraud",
+    "positive_class": "fraudulent transaction",
+    "class_balance": {
+      "0": 6958,
+      "1": 242
+    }
+  },
+  "models_trained": [
+    {
+      "model": "LogisticRegression baseline",
+      "roc_auc": 0.719,
+      "pr_auc": 0.1682,
+      "precision": 0.1391,
+      "recall": 0.35,
+      "f1": 0.1991,
+      "false_positive_rate": 0.0747,
+      "threshold": 0.75,
+      "estimated_loss": 5034.06,
+      "losses_prevented": 1929.21
+    },
+    {
+      "model": "RandomForestClassifier baseline",
+      "roc_auc": 0.7042,
+      "pr_auc": 0.1828,
+      "precision": 0.2179,
+      "recall": 0.2833,
+      "f1": 0.2464,
+      "false_positive_rate": 0.0351,
+      "threshold": 0.4,
+      "estimated_loss": 3737.11,
+      "losses_prevented": 3226.16
+    },
+    {
+      "model": "GradientBoostingClassifier stronger_model",
+      "roc_auc": 0.7144,
+      "pr_auc": 0.1147,
+      "precision": 0.1544,
+      "recall": 0.35,
+      "f1": 0.2143,
+      "false_positive_rate": 0.0661,
+      "threshold": 0.07,
+      "estimated_loss": 4760.52,
+      "losses_prevented": 2202.75
+    },
+    {
+      "model": "XGBoost XGBClassifier stronger_model",
+      "roc_auc": 0.693,
+      "pr_auc": 0.1076,
+      "precision": 0.1818,
+      "recall": 0.2,
+      "f1": 0.1905,
+      "false_positive_rate": 0.031,
+      "threshold": 0.61,
+      "estimated_loss": 4494.8,
+      "losses_prevented": 2468.47
+    }
+  ],
+  "failed_models": [
+    {
+      "model": "LightGBM LGBMClassifier stronger_model",
+      "status": "skipped",
+      "error": "Skipped on Windows because the local LightGBM native wheel raised an access violation. Set ENABLE_LIGHTGBM=1 to force training."
+    }
+  ],
+  "selected_model": {
+    "model": "RandomForestClassifier baseline",
+    "roc_auc": 0.7042,
+    "pr_auc": 0.1828,
+    "precision": 0.2179,
+    "recall": 0.2833,
+    "f1": 0.2464,
+    "false_positive_rate": 0.0351,
+    "threshold": 0.4,
+    "estimated_loss": 3737.11,
+    "losses_prevented": 3226.16
+  },
+  "feature_count": 34,
+  "top_features": [
+    [
+      "merchant_risk_score",
+      0.1329334
+    ],
+    [
+      "device_trust_score",
+      0.0774202
+    ],
+    [
+      "distance_from_home_km",
+      0.0639375
+    ],
+    [
+      "customer_chargeback_rate",
+      0.0628679
+    ],
+    [
+      "amount_to_customer_avg",
+      0.0628097
+    ],
+    [
+      "amount",
+      0.057865
+    ],
+    [
+      "spending_velocity_24h",
+      0.0571676
+    ],
+    [
+      "amount_zscore",
+      0.0539842
+    ],
+    [
+      "account_age_days",
+      0.0521125
+    ],
+    [
+      "spending_velocity_1h",
+      0.0516538
+    ],
+    [
+      "is_new_merchant",
+      0.0466784
+    ],
+    [
+      "customer_avg_amount",
+      0.043196
+    ]
+  ],
+  "feature_groups": {
+    "transaction": [
+      "amount",
+      "hour",
+      "day_of_week",
+      "channel",
+      "card_present"
+    ],
+    "customer_behavior": [
+      "customer_avg_amount",
+      "amount_to_customer_avg",
+      "amount_zscore",
+      "customer_txn_count_24h",
+      "spending_velocity_1h",
+      "spending_velocity_24h"
+    ],
+    "merchant_and_context": [
+      "merchant_category",
+      "merchant_risk_score",
+      "international",
+      "distance_from_home_km",
+      "is_new_merchant"
+    ],
+    "security": [
+      "device_trust_score",
+      "failed_login_24h",
+      "customer_chargeback_rate"
+    ]
+  }
+}

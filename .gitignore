@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.DS_Store
+node_modules/
+dist/
+frontend/dist/
+backend/app/ml/artifacts/*.tmp
+coverage/
+.mypy_cache/
+

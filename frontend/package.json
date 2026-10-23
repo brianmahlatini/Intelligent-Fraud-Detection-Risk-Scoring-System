@@ -1,0 +1,25 @@
+{
+  "name": "fraud-risk-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node ./node_modules/typescript/bin/tsc && node ./node_modules/vite/bin/vite.js build --config vite.config.mjs --configLoader native",
+    "preview": "node ./node_modules/vite/bin/vite.js preview --host 0.0.0.0 --config vite.config.mjs --configLoader native"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.1",
+    "typescript": "^5.7.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2"
+  }
+}
+
